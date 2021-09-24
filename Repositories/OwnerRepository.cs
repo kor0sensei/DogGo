@@ -81,7 +81,8 @@ namespace DogGo.Repositories
                     cmd.CommandText = @"SELECT Owner.Id, Owner.Email, Owner.Name, Owner.Address, Owner.NeighborhoodId, Owner.Phone, Neighborhood.Name [Neighborhood Name]
                                       FROM Owner 
                                       INNER JOIN Neighborhood 
-                                      ON Owner.NeighborhoodId = Neighborhood.Id";
+                                      ON Owner.NeighborhoodId = Neighborhood.Id
+                                      WHERE Owner.Id = @id";
 
                     cmd.Parameters.AddWithValue("@id", id);
 
